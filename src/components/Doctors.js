@@ -6,23 +6,22 @@ const DoctorsInCity = ({ allDoctors }) => {
   const [selectedCity, setSelectedCity] = useState('');
   const [filteredDoctors, setFilteredDoctors] = useState([]);
 
-  const {city}=useParams()
-  
+  const { city } = useParams();
 
-  useEffect(()=>{
-      setSelectedCity(city)
-    getDoctors(city)
-  },[city])
+  useEffect(() => {
+    setSelectedCity(city);
+    getDoctors(city);
+  }, [city]);
 
-  const getDoctors=async (city)=>{
-        const response=await fetch("https://8b753df0-d1ee-47c4-8916-b78c2965475e-00-18ag0gsaa8d1y.pike.replit.dev/doctors/"+city)
-        const data=await response.json()
-        setFilteredDoctors(data)    
-  }
+  const getDoctors = async (city) => {
+    const response = await fetch(`https://your-api-url-here/doctors/${city}`);
+    const data = await response.json();
+    setFilteredDoctors(data);
+  };
 
   return (
-    <div className=" mx-auto  h-screen bg-black w-scrren">
-        <Hero/>
+    <div className="mx-auto h-screen bg-black w-full">
+      <Hero />
       <h2 className="text-3xl font-bold mb-4 text-white mx-4">Doctors in {city.toUpperCase()}</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-4">

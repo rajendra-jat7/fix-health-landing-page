@@ -8,7 +8,7 @@ const Landing = () => {
   return (
     <div className='relative'>
         <Hero/>
-        <Login/>
+        {/* <Login/> */}
         <Testimonials/>
         {/* <DoctorsInCity/> */}
     </div>
